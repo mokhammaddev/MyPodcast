@@ -27,7 +27,7 @@ def register_view(request):
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
-        return redirect('.')
+        return redirect('account:login')
     ctx = {
         'form': form
     }

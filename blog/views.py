@@ -49,8 +49,9 @@ def about(request):
 
 def views(request, pk):
     obj = Article.objects.get(id=pk)
-    obj.views += 1
-    obj.save()
+    if request.user.is_authenticated:
+        obj.views += 1
+        obj.save()
     return redirect(reverse('blog:detail', kwargs={'pk': pk}))
 
 
