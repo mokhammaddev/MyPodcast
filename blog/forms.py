@@ -5,21 +5,16 @@ from .models import Comment, Newsletter
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = '__all__'
+        fields = ('message', )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({
-            "class": "comment_input comment_textarea",
-            "placeholder": "name",
-            "required": "required",
-
-        })
         self.fields['message'].widget.attrs.update({
             "type": "text",
             "class": "comment_input",
             "placeholder": "Message",
-            "required": "required"
+            "required": "required",
+            "name": "message",
         })
 
 

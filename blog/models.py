@@ -42,8 +42,7 @@ class Article(models.Model):
 
 
 class Comment(models.Model):
-    name = models.CharField(max_length=222)
-    author = models.ForeignKey('profile.Profile', on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.ForeignKey('profile.Profile', on_delete=models.CASCADE)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     message = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)

@@ -67,24 +67,22 @@ def detail(request, pk):
     obj = Article.objects.get(id=pk)
     categories = Category.objects.all()
     tags = Tag.objects.all()
-    comments = Comment.objects.all()
     cat = request.GET.get('cat')
     tag = request.GET.get('tag')
     search = request.GET.get('search')
+    comments = Comment.objects.filter(article_id=pk)
     form = CommentForm()
     if request.method == 'POST':
-        if request.user.is_authenticated:
-            form = CommentForm(data=request.POST)
-            if form.is_valid():
-                obj = form.save(commit=False)
-                obj.name = request.user.profile.full_name
+        form = CommentForm(data=request.POST)
+        if not request.user.is_authenticated:
+            return redirect('account:login')
+        if form.is_valid():
+            message = request.POST.get('message')
+            author_id = request.user.id
+            if article:
+                obj = Comment(message=message, article_id=pk, author_id=author_id)
                 obj.save()
-                return redirect('.')
-        else:
-            form = CommentForm(data=request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('.')
+            return redirect(reverse('blog:detail', kwargs={"pk": pk}))
     if tag:
         article = article.filter(tags__title__exact=tag)
     if cat:

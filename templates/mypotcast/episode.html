@@ -180,13 +180,6 @@
                     <div class="section_title">Leave a comment</div>
                     <form method="post" id="comment_form" class="comment_form">
                         {% csrf_token %}
-                        {% if not request.user.is_authenticated %}
-                        <div class="row">
-                            <div class="col-md-6 comment_col">
-                                {{ form.name }}
-                            </div>
-                        </div>
-                        {% endif %}
                         <div>
                             {{ form.message }}
                         </div>
