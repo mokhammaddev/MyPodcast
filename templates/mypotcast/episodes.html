@@ -18,29 +18,15 @@
 
 <div class="episodes">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="season_links">
-                    <ul class="d-flex flex-row align-items-start justify-content-center flex-wrap">
-                        <li class="item_filter_btn" data-filter="*">All Seasons</li>
-                        <li class="item_filter_btn" data-filter=".s1">Season 1</li>
-                        <li class="item_filter_btn" data-filter=".s2">Season 2</li>
-                        <li class="item_filter_btn" data-filter=".s3">Season 3</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="row episodes_row">
-
             <div class="col-lg-3">
                 <div class="sidebar">
-
                     <div class="sidebar_search">
                         <div class="sidebar_title">Search</div>
                         <form class="search_form" id="search_form">
                             <input type="text" name="search" class="search_input" placeholder="Search here"
                                    required="required">
-                            <button class="search_button"><img src="images/search.png" alt=""></button>
+                            <button class="search_button"><img src="{% static 'images/search.png' %}" alt=""></button>
                         </form>
                     </div>
 
