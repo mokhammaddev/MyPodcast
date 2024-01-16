@@ -8,7 +8,6 @@ def index(request):
     articles = Article.objects.order_by('-id')
     categories = Category.objects.all()
     tags = Tag.objects.all()
-    last_article = Article.objects.order_by().first()
     page_number = request.GET.get('page', 1)
     paginator = Paginator(articles, 3)
     try:
@@ -21,7 +20,6 @@ def index(request):
         'articles': page_obj,
         'categories': categories,
         'tags': tags,
-        'last_article': last_article,
     }
     return render(request, 'mypotcast/index.html', ctx)
 
