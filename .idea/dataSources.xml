@@ -10,5 +10,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Muhammad\Desktop\Projects\Mypotcast\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="myproject@myproject.cl24s4awm7xc.eu-north-1.rds.amazonaws.com" uuid="7f4bad70-c02c-45ef-abae-2d70c9b9ddfa">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://myproject.cl24s4awm7xc.eu-north-1.rds.amazonaws.com:5432/myproject</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
